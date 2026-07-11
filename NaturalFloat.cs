@@ -1,6 +1,6 @@
 namespace DomainSpecificType;
 
-public record NaturalFloat
+public class NaturalFloat
 {
     private readonly double _value;
 
@@ -44,6 +44,47 @@ public record NaturalFloat
     {
         if (b._value == 0.0) throw new DivideByZeroException($"Invalid divisor: {b}");
         return new NaturalFloat(a._value / b._value);
+    }
+
+    public static bool operator ==(NaturalFloat a, NaturalFloat b)
+    {
+        return Math.Abs(a._value - b._value) < 0.00001;
+    }
+
+    public static bool operator !=(NaturalFloat a, NaturalFloat b)
+    {
+        return !(a == b);
+    }
+
+    public static bool operator <(NaturalFloat a, NaturalFloat b)
+    {
+        return a._value < b._value;
+    }
+
+    public static bool operator >(NaturalFloat a, NaturalFloat b)
+    {
+        return a._value > b._value;
+    }
+
+    public static bool operator <=(NaturalFloat a, NaturalFloat b)
+    {
+        return a._value <= b._value;
+    }
+
+    public static bool operator >=(NaturalFloat a, NaturalFloat b)
+    {
+        return a._value >= b._value;
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if (obj is NaturalFloat other) return this == other;
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return Math.Round(_value, 5).GetHashCode();
     }
 
     public override string ToString()
