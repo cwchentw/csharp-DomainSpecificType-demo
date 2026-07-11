@@ -10,7 +10,6 @@ public sealed class NaturalInt
         _value = value;
     }
 
-
     public static bool TryCreate(int value, out NaturalInt result)
     {
         if (value < 0)
