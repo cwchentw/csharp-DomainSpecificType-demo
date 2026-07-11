@@ -12,6 +12,8 @@ public class NaturalInt
         _value = value;
     }
 
+    public static explicit operator int(NaturalInt ni) => ni._value;
+
     public static bool TryCreate(int value, out NaturalInt result)
     {
         if (value < 0)
