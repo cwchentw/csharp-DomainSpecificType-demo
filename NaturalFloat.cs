@@ -24,6 +24,8 @@ public record NaturalFloat
         return true;
     }
 
+    public static explicit operator double(NaturalFloat nf) => nf._value;
+
     public static NaturalFloat operator +(NaturalFloat a, NaturalFloat b)
     {
         return new NaturalFloat(a._value + b._value);
