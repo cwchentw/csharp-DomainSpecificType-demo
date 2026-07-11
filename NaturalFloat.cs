@@ -1,5 +1,3 @@
-using System.Dynamic;
-
 namespace DomainSpecificType;
 
 public record NaturalFloat
@@ -44,7 +42,7 @@ public record NaturalFloat
 
     public static NaturalFloat operator /(NaturalFloat a, NaturalFloat b)
     {
-        if (b._value == 0.0) throw new DivideByZeroException($"Invalid divisor: ${b}");
+        if (b._value == 0.0) throw new DivideByZeroException($"Invalid divisor: {b}");
         return new NaturalFloat(a._value / b._value);
     }
 
