@@ -1,6 +1,6 @@
 namespace DomainSpecificType;
 
-public class NaturalFloat
+public sealed class NaturalFloat
 {
     private readonly double _value;
 

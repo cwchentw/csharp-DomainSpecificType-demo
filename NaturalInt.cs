@@ -1,6 +1,6 @@
 namespace DomainSpecificType;
 
-public class NaturalInt
+public sealed class NaturalInt
 {
     private readonly int _value;
 
